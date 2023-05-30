@@ -1,0 +1,21 @@
+{% extends "journpys/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h2 class="text-success"><a href="{% url 'journpys:topic' topic.id %}" 
+    class="text-reset">{{ topic }}</a></h2>
+{% endblock page_header %}
+
+{% block content %}
+  <p>Edit entry:</p>
+
+  <form method="post" action="{% url 'journpys:edit_entry' entry.id %}" 
+    class="form">
+  	{% csrf_token %}
+  	{% bootstrap_form form %}
+    {% buttons %}
+  	  <button name="submit" class="btn btn-success">Save</button>
+    {% endbuttons %}
+  </form>
+
+{% endblock content %}

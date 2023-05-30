@@ -1,0 +1,20 @@
+{% extends "journpys/base.html" %}
+
+{% block page_header %}
+  <h1>Topics</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <ul>
+  	{% for topic in topics %}
+  	  <li><h5 class="text-success">
+  	  	<a href="{% url 'journpys:topic' topic.id %}" class="text-reset">{{ topic }}</a>
+  	  </h5></li>
+  	{% empty %}
+  	  <li><h5>No topics have been added yet.</h5></li>
+  	{% endfor %}
+  </ul>
+
+  <h3 class="text-success"><a href="{% url 'journpys:new_topic' %}" class="text-reset">New topic</a></h3>
+ {% endblock content %}
+

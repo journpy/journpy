@@ -1,0 +1,29 @@
+{% extends 'journpys/base.html' %}
+
+{% block page_header %}
+  <h1>{{ topic }}</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <p class="text-success">
+    <a href="{% url 'journpys:new_entry' topic.id %}" 
+      class="text-reset">New entry</a>
+  </p>
+  
+  {% for entry in entries %}
+    <div class="card mb-3">
+      <h5 class="card-header">
+        {{ entry.date_added|date:'M d, Y H:i' }}
+        <small class="text-success">
+          <a href="{% url 'journpys:edit_entry' entry.id %}" 
+          class="text-reset">Edit</a></small>
+      </h5>
+      <div class="card-body">
+        {{ entry.text|linebreaks }}
+      </div>
+    </div>
+  {% empty %}
+    <p>There are no entries for this topic yet.</p>
+  {% endfor %}
+
+{% endblock content %}

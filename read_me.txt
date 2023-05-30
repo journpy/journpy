@@ -1,0 +1,1 @@
+JournPy is an online journal developed in python and django. JournPy enables users to make journal entries about topics they are interested in. Users can create new topics, add new entries, read and edit existing journal entries.

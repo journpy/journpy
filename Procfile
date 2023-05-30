@@ -1,0 +1,1 @@
+web: gunicorn journpy.wsgi --log-file -

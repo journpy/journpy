@@ -1,0 +1,42 @@
+{% extends "journpys/base.html" %}
+
+{% block page_header %}
+  <div class="jumbotron">
+  	<h1 class="display-3">Record your daily events and learning.</h1>
+  	<p class="lead">JournPy helps you to make journal entries for any topic 
+  		you are learning about. You can also use this app to record news and 
+  		events that occur in your daily life.</p>
+  	<a class="btn btn-lg btn-success" href="{% url 'users:register' %}"
+  		role="button">Sign Up &raquo;</a>
+
+  </div>
+{% endblock page_header %}
+
+{% block content %}
+{% load static %}
+<div class="container">
+<div class="row">
+<div col-sm-4>
+<div class="card p-2 m-3" style="width:auto;">
+<div class="row">
+  <div class="col-sm-6">
+    <img class="card-img" src="static/leaf.jpg" alt="Card image"/>
+  </div>
+  <div class="col-sm-6">
+    <div class="card-body-right">
+      <h3 class="card-title">User friendliness</h3>
+      <p class="card-text">JournPy can be easily used by anyone including children.
+      <h3 class="card-title">Integrity</h3>
+      <p class="card-text">Be rest assured that your data is safe and secure.</p>
+      <h3 class="card-title">Functionality</h3>
+      <p class="card-text">Make daily entries into your journal and monitor 
+        your progress as you learn.</p>
+      <a class="btn btn-success" href="{% url 'users:register' %}" role="button">Sign Up &raquo;</a>
+    </div>
+     </div>
+  </div> 
+  </div>
+</div>
+</div></div>
+
+{% endblock content %}
