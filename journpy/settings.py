@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 ######################
 import dj_database_url
+import os
 ######################
 from pathlib import Path
 
@@ -41,6 +42,9 @@ INSTALLED_APPS = [
     # Third party styling apps.
     'bootstrap4',
 
+    # Disable Django’s static file handling and allow WhiteNoise to take over
+    'whitenoise.runserver_nostatic',
+
     # Default django apps
     'django.contrib.admin',
     'django.contrib.auth',
@@ -52,6 +56,8 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # Enable WhiteNoise
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -65,7 +71,7 @@ ROOT_URLCONF = 'journpy.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -144,11 +150,23 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'users:login'
 
 # Configure Django App for Heroku.
-import os
 import django_heroku
 django_heroku.settings(locals())
 
+# Debug settings for Heroku environment
 if os.environ.get('DEBUG') == 'TRUE':
     DEBUG = True
 elif os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
+
+# STATIC_ROOT setting for gathering static files in a single directory so you can serve them easily.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+
+
+STORAGES = {
+    # Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+

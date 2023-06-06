@@ -13,14 +13,14 @@
 {% endblock page_header %}
 
 {% block content %}
-{% load static %}
 <div class="container">
 <div class="row">
 <div col-sm-4>
 <div class="card p-2 m-3" style="width:auto;">
 <div class="row">
   <div class="col-sm-6">
-    <img class="card-img" src="static/leaf.jpg" alt="Card image"/>
+{% load static %}
+    <img class="card-img" src="{% static 'journpys/leaf.jpg' %}" alt="Card image">
   </div>
   <div class="col-sm-6">
     <div class="card-body-right">
