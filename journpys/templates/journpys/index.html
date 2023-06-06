@@ -6,9 +6,12 @@
   	<p class="lead">JournPy helps you to make journal entries for any topic 
   		you are learning about. You can also use this app to record news and 
   		events that occur in your daily life.</p>
-  	<a class="btn btn-lg btn-success" href="{% url 'users:register' %}"
+    {% if user.is_authenticated %}
+      <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">See Topics &raquo;</a>
+    {% else %}
+  	  <a class="btn btn-lg btn-success" href="{% url 'users:register' %}"
   		role="button">Sign Up &raquo;</a>
-
+    {% endif %}
   </div>
 {% endblock page_header %}
 
@@ -31,7 +34,11 @@
       <h3 class="card-title">Functionality</h3>
       <p class="card-text">Make daily entries into your journal and monitor 
         your progress as you learn.</p>
-      <a class="btn btn-success" href="{% url 'users:register' %}" role="button">Sign Up &raquo;</a>
+      {% if user.is_authenticated %}
+        <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">See Topics &raquo;</a>
+      {% else %}
+        <a class="btn btn-success" href="{% url 'users:register' %}" role="button">Sign Up &raquo;</a>
+      {% endif %}
     </div>
      </div>
   </div> 
