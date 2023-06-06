@@ -162,14 +162,5 @@ elif os.environ.get('DEBUG') == 'FALSE':
 # STATIC_ROOT setting for gathering static files in a single directory so you can serve them easily.
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-
-STORAGES = {
-    # Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
-
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-MEDIA_URL = '/media/'
-
+# Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
