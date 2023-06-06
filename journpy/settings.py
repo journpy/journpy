@@ -163,4 +163,7 @@ elif os.environ.get('DEBUG') == 'FALSE':
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
 # Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+WHITENOISE_USE_FINDERS = True
+WHITENOISE_MANIFEST_STRICT = False
+WHITENOISE_ALLOW_ALL_ORIGINS = True
