@@ -1,0 +1,89 @@
+[33mcommit 37cb65c1d1004ab26a5803aae26134bfa7442a64[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue Jun 6 08:40:48 2023 +0100
+
+    Allowed only unregistered users to sign up.
+
+[33mcommit 8cd6aeaff72f2d929734509d6b5738bb63b5844f[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue Jun 6 08:03:24 2023 +0100
+
+    crash fixed.
+
+[33mcommit 0bc65a365060385a3d834cc52de33119a9ab09da[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue Jun 6 08:02:25 2023 +0100
+
+    bugs fixed.
+
+[33mcommit eb28b699ebbea140f6e83638ad2a0edaefa3ef64[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue Jun 6 07:36:04 2023 +0100
+
+    Collect and render static files.
+
+[33mcommit 5472fed22a782c544ed2b177d2c320f7bdd7dac9[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue Jun 6 07:29:08 2023 +0100
+
+    Collect and render static files.
+
+[33mcommit a86e43647d5334e20c29c53ca01bcd6944ec896e[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue Jun 6 07:28:42 2023 +0100
+
+    Collect and render static files.
+
+[33mcommit c4c2210cfab788e25fe78c7acce2fb7d8ec14fed[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Mon Jun 5 11:36:02 2023 +0100
+
+    Deployed to Heroku using PostgreSQL.
+
+[33mcommit 519fb70445a04cfc290eed582bb19824f17025df[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Mon Jun 5 09:38:07 2023 +0100
+
+    bugs fixed
+
+[33mcommit 4edda1d03fb56edef11ffd73ca66999710b4ea7b[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Mon Jun 5 09:09:30 2023 +0100
+
+    Postgres
+
+[33mcommit d87f7517f10d00b4bbfcf5294d6a614e67936f1f[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Mon Jun 5 07:45:19 2023 +0100
+
+    Going back to sqlite3
+
+[33mcommit 7a36d1c8679134cb21e7f3528e36c5fe54d98bdd[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Thu Jun 1 15:05:10 2023 +0100
+
+    refactoring.
+
+[33mcommit 3313121206643870d5b8f168277165b4689a67db[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Thu Jun 1 14:53:26 2023 +0100
+
+    refactoring again
+
+[33mcommit 0f7188bf05fa30ec85a142ff8402027cfd246d20[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Thu Jun 1 14:46:12 2023 +0100
+
+    Refactored
+
+[33mcommit 13a08abbd2a172477cc496cdb3be8609d0baea75[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Thu Jun 1 14:27:02 2023 +0100
+
+    Initial commit.
+
+[33mcommit a20091fd0bdabc3d2630d4eac105accc97f8031b[m
+Author: Uchenna Adubasim <uchadubs@yahoo.com>
+Date:   Tue May 30 10:56:01 2023 +0100
+
+    Deploying to Heroku server.

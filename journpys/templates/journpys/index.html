@@ -7,7 +7,8 @@
   		you are learning about. You can also use this app to record news and 
   		events that occur in your daily life.</p>
     {% if user.is_authenticated %}
-      <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">See Topics &raquo;</a>
+      <a class="btn btn-success" href="{% url 'journpys:topics' %}" 
+        role="button">See Topics &raquo;</a>
     {% else %}
   	  <a class="btn btn-lg btn-success" href="{% url 'users:register' %}"
   		role="button">Sign Up &raquo;</a>
@@ -23,27 +24,32 @@
 <div class="row">
   <div class="col-sm-6">
 {% load static %}
-    <img class="card-img" src="{% static 'journpys/leaf.jpg' %}" alt="Card image">
+  <img class="card-img" src="{% static 'journpys/leaf.jpg' %}" alt="Card image">
   </div>
   <div class="col-sm-6">
     <div class="card-body-right">
       <h3 class="card-title">User friendliness</h3>
-      <p class="card-text">JournPy can be easily used by anyone including children.
+      <p class="card-text">JournPy can be easily used by anyone including 
+        children.</p>
       <h3 class="card-title">Integrity</h3>
-      <p class="card-text">Be rest assured that your data is safe and secure.</p>
+      <p class="card-text">Be rest assured that your data is safe 
+        and secure.</p>
       <h3 class="card-title">Functionality</h3>
       <p class="card-text">Make daily entries into your journal and monitor 
         your progress as you learn.</p>
       {% if user.is_authenticated %}
-        <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">See Topics &raquo;</a>
+        <a class="btn btn-success" href="{% url 'journpys:topics' %}" 
+          role="button">See Topics &raquo;</a>
       {% else %}
-        <a class="btn btn-success" href="{% url 'users:register' %}" role="button">Sign Up &raquo;</a>
+        <a class="btn btn-success" href="{% url 'users:register' %}" 
+          role="button">Sign Up &raquo;</a>
       {% endif %}
     </div>
-     </div>
-  </div> 
   </div>
+</div> 
 </div>
-</div></div>
+</div>
+</div>
+</div>
 
 {% endblock content %}
