@@ -8,13 +8,17 @@
   <ul>
   	{% for topic in topics %}
   	  <li><h5 class="text-success">
-  	  	<a href="{% url 'journpys:topic' topic.id %}" class="text-reset">{{ topic }}</a>
+  	  	<a href="{% url 'journpys:topic' topic.id %}" 
+          class="text-reset">{{ topic }}
+        <a href="{% url 'journpys:delete_topic' topic.id %}" 
+          class="text-warning">Delete</a></a>
   	  </h5></li>
   	{% empty %}
   	  <li><h5>No topics have been added yet.</h5></li>
   	{% endfor %}
   </ul>
 
-  <h3 class="text-success"><a href="{% url 'journpys:new_topic' %}" class="text-reset">New topic</a></h3>
+  <h3 class="text-success"><a href="{% url 'journpys:new_topic' %}" 
+    class="text-reset">New topic</a></h3>
  {% endblock content %}
 

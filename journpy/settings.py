@@ -9,11 +9,11 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
-######################
-import dj_database_url
-import os
-######################
 from pathlib import Path
+# My import statements
+import django_heroku
+import os
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-6ppm_ri8037@&*t=png5*m#u%g1z_n928w1#sd5)n-x=3=7(+(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['journpy.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'journpy.herokuapp.com']
 
 
 
@@ -42,15 +42,14 @@ INSTALLED_APPS = [
     # Third party styling apps.
     'bootstrap4',
 
-    # Disable Django’s static file handling and allow WhiteNoise to take over
-    'whitenoise.runserver_nostatic',
-
     # Default django apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    # Disable Django’s static file handling and allow WhiteNoise to take over
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
 ]
 
@@ -100,10 +99,6 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-######################################################
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
-######################################################
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -140,6 +135,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+# STATIC_ROOT setting for gathering static files in a single directory so you can serve them easily.
+STATIC_ROOT = BASE_DIR / "staticfiles"
+# Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -150,7 +149,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'users:login'
 
 # Configure Django App for Heroku.
-import django_heroku
 django_heroku.settings(locals())
 
 # Debug settings for Heroku environment
@@ -158,12 +156,3 @@ if os.environ.get('DEBUG') == 'TRUE':
     DEBUG = True
 elif os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
-
-# STATIC_ROOT setting for gathering static files in a single directory so you can serve them easily.
-STATIC_ROOT = BASE_DIR / "staticfiles"
-
-# Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
-#STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
-WHITENOISE_USE_FINDERS = True
-WHITENOISE_MANIFEST_STRICT = False
-WHITENOISE_ALLOW_ALL_ORIGINS = True

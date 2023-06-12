@@ -16,7 +16,10 @@
         {{ entry.date_added|date:'M d, Y H:i' }}
         <small class="text-success">
           <a href="{% url 'journpys:edit_entry' entry.id %}" 
-          class="text-reset">Edit</a></small>
+            class="text-reset">Edit</a>
+          <a href="{% url 'journpys:delete_entry' entry.id %}" 
+            class="text-reset">Delete</a>
+        </small>
       </h5>
       <div class="card-body">
         {{ entry.text|linebreaks }}
