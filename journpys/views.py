@@ -125,5 +125,10 @@ def delete_entry(request, entry_id):
 	return redirect('journpys:topic', topic_id=topic.id)
 	context = {'entry': entry, 'topic': topic}
 	return render(request, 'journpys/delete_entry.html', context)
+
+
+def about(request):
+	"""Display About page for JournPy."""
+	return render(request, 'journpys/about.html')
 	
 

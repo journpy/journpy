@@ -1,0 +1,19 @@
+{% extends "journpys/base.html" %}
+
+{% block page_header %}
+  <h1 class="text-success"> Learn Python</h1>
+  <p class="lead"> JournPy offers exciting and engaging tutorials
+    that will help you learn python. Find the list of topics below
+	and click on a topic to access the lesson.</p>
+{% endblock page_header %}
+
+{% block content %}
+  <h2 class="text-success">Lessons</h2>
+  <ol>
+  	{% for title in titles %}
+  	<li><h5 class="text-success"><a class="text-reset" href="{% url 'learnpython:lesson' title.id %}">{{ title }}</a></h5></li>
+  	{% empty %}
+  	  <li><h4>No lessons have been added yet.</h4></li>
+  	{% endfor %}
+  </ol>
+{% endblock content %}

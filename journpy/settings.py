@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     # My apps
     'journpys',
     'users',
+    'learnpython',
 
     # Third party styling apps.
     'bootstrap4',

@@ -1,0 +1,22 @@
+{% extends 'journpys/base.html' %}
+
+
+{% block page_header %}
+  <h3>{{ title }}</h3>
+{% endblock page_header %}
+
+{% block content %}
+  {% for body in bodies %}
+    <div class="card mb-3">
+      <h4 class="card-header">
+        {{ body.date_added|date:'M d, Y H:i' }}</h4>
+    <div class="card-body">
+      {{ body.text|linebreaks }}
+    </div>
+	 </div>
+      
+  {% empty %}
+    <p>No lesson have been added yet.</p>
+  {% endfor %}
+
+{% endblock content %}
