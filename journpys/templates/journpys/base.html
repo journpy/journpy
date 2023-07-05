@@ -3,58 +3,77 @@
 
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, 
     shrink-to-fit=no">
   <title>JournPy</title>
-  <link rel="shortcut icon" type="image/png" 
-    href="{% static 'journpys/journpy_icon.png' %}">
+  <link rel="shortcut icon" type="image/png" href="{% static 'journpys/journpy_icon.png' %}">
   {% bootstrap_css %}
   {% bootstrap_javascript jquery='full' %}
+  {# Bootstrap Dropdown is built on the third-party library popper which provides dynamic positioning. #}
+  {# Here, I include popper.min.js file before Bootstrap javascript or include #}
+  {# bootstrap.bundle.min.js / bootstrap.bundle.js which contains Popper. #}
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+    integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+    crossorigin="anonymous"></script>
+</head>
 
-</head>  
 <body>
-  <nav class="navbar navbar-expand-md navbar-dark bg-success mb-0 border">
+  <nav class="navbar navbar-expand-md navbar-light bg-light mb-0 border">
 
-    <a class="navbar-brand" href="{% url 'journpys:index' %}">JournPy</a>
+    <a class="navbar-brand" href="{% url 'journpys:index' %}">
+      <img src="{% static 'journpys/journpy_icon.png' %}" alt="JournPy" width="50" height="43"></a>
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarCollapse" aria-controls="navbarCollapse"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span></button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'learnpython:lessons' %}">Learn Python
-              </a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'journpys:topics' %}">Personal Journal
-              </a></li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'journpys:about' %}">About
-              </a></li>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">JPLearn</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'learnpython:lessons' %}">Learn Python</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item disabled" href="#">Learn Math</a></li>
           </ul>
-          <!-- login and registration links -->
-          <ul class="navbar-nav ml-auto">
-            {% if user.is_authenticated %}
-              <li class="nav-item">
-                <span class="navbar-text">Hello, {{ user.username }}.</span>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'users:logout' %}">Log out
-                </a></li>
-            {% else %}
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'users:register' %}">
-                    Register</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="{% url 'users:login' %}">Log in</a>
-              </li>
-            {% endif %}
-          </ul>
-      </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'journpys:topics' %}">Personal Journal
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'journpys:about' %}">About
+          </a>
+        </li>
+      </ul>
+      <!-- login and registration links -->
+      <ul class="navbar-nav ml-auto">
+        {% if user.is_authenticated %}
+        <li class="nav-item">
+          <span class="navbar-text">Hello, {{ user.username }}.</span>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'users:logout' %}">Log out
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'users:register' %}">
+            Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'users:login' %}">Log in</a>
+        </li>
+        {% endif %}
+      </ul>
+    </div>
 
   </nav>
 
@@ -66,12 +85,7 @@
       {% block content %}{% endblock content %}
     </div>
   </main>
-<footer class="footer">
-  <div class="container-fluid text-center mt-5">
-    <span class="text-success">Copyright © 2023. All rights reserved.</span>
-    <span class="text-success">Contact the developer uceeworld@gmail.com</span>
-  </div>
-</footer>
 </body>
+{% include "main/includes/footer.html" %}
 
 </html>
