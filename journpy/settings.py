@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-6ppm_ri8037@&*t=png5*m#u%g1z_n928w1#sd5)n-x=3=7(+(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'journpy.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'journpy.com']
 
 
 
@@ -52,6 +52,9 @@ INSTALLED_APPS = [
     # Disable Django’s static file handling and allow WhiteNoise to take over
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
+    # Use cloudinary to serve media files.
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -125,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Lagos'
 
 USE_I18N = True
 
@@ -140,6 +143,11 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 # Whitenoise backend which compresses files and hashes them to unique names, so they can safely be cached forever.
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# Media files configuration
+MEDIA_URL = '/media/'  
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
@@ -157,3 +165,12 @@ if os.environ.get('DEBUG') == 'TRUE':
     DEBUG = True
 elif os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
+
+# Cloudinary storage to store media files in deployment
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'hybmdmjqo',
+    'API_KEY': '784847434855931',
+    'API_SECRET': '6YZ0JyloVfsEXar0rcXcU5LxT9k'
+}
+
+

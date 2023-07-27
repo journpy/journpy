@@ -2,21 +2,25 @@
 
 
 {% block page_header %}
-  <h3>{{ title }}</h3>
+<h3>{{ title }}</h3>
 {% endblock page_header %}
 
 {% block content %}
-  {% for body in bodies %}
-    <div class="card mb-3">
-      <h4 class="card-header">
-        {{ body.date_added|date:'M d, Y H:i' }}</h4>
-    <div class="card-body">
-      {{ body.text|linebreaks }}
-    </div>
-	 </div>
-      
-  {% empty %}
-    <p>No lesson have been added yet.</p>
-  {% endfor %}
+{% for body in bodies %}
+<div class="container-fluid">
+  <img src="{{ body.image1.url }}" alt="{{ body.image1.name }}" width="100%">
+</div>
+<div class="card mb-3">
+  <h4 class="card-header">
+    {{ body.date_added|date:'M d, Y H:i' }}</h4>
+  <div class="card-body">
+    {{ body.text|linebreaks }}
+    <img src="{{ body.image2.url }}" alt="{{ body.image2.name }}" width="100%">
+  </div>
+</div>
+
+{% empty %}
+<p>No lesson have been added yet.</p>
+{% endfor %}
 
 {% endblock content %}

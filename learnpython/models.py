@@ -18,6 +18,8 @@ class Body(models.Model):
 	title = models.ForeignKey(Title, on_delete=models.CASCADE)
 	text = models.TextField()
 	date_added = models.DateTimeField(auto_now_add=True)
+	image1 = models.ImageField(upload_to='images/', blank=True)
+	image2 = models.ImageField(upload_to='images/', blank=True)
 
 
 	class Meta:

@@ -8,7 +8,7 @@
     journal entries for any topic you are learning about.
     You can also use this app to record news and events that occur in your
     daily life. Sign up and start learning today!</p>
-  <div class="pt-2 pb-3">
+  <div class="pt-2 pb-2">
     {% if user.is_authenticated %}
     <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">Your Journal &raquo;</a>
     {% else %}
@@ -40,9 +40,9 @@
               <p class="card-text font-italic">Make daily entries into your journal and monitor
                 your progress as you learn.</p>
               {% if user.is_authenticated %}
-              <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">Your Journal &raquo;</a>
+              <a class="btn btn-success" href="{% url 'journpys:topics' %}" role="button">Your Journal &raquo;</a><br />
               {% else %}
-              <a class="btn btn-success" href="{% url 'users:register' %}" role="button">Sign Up &raquo;</a>
+              <a class="btn btn-success" href="{% url 'users:register' %}" role="button">Sign Up &raquo;</a><br />
               {% endif %}
             </div>
           </div>
